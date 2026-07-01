@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: simple-page-nginx
+  labels:
+    app: simple-page-nginx
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: simple-page-nginx
+
+  template:
+    metadata:
+      labels:
+        app: simple-page-nginx
+
+    spec:
+      containers:
+        - name: simple-page-nginx
+
+          image: 443628962956.dkr.ecr.us-east-1.amazonaws.com/simple-page-nginx:latest
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+            limits:
+              cpu: 500m
+              memory: 512Mi
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
