@@ -9,4 +9,4 @@ namespace: simple-page-nginx
 images:
 - name: simple-page-nginx
   newName: 443628962956.dkr.ecr.us-east-1.amazonaws.com/simple-page-nginx
-  newTag: main-c3c3259-6
+  newTag: main-c06a950-7
