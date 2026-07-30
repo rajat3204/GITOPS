@@ -22,7 +22,7 @@ spec:
       containers:
         - name: simple-page-nginx
 
-          image: 443628962956.dkr.ecr.us-east-1.amazonaws.com/simple-page-nginx:latest
+          image: simple-page-nginx
 
           imagePullPolicy: Always
 
